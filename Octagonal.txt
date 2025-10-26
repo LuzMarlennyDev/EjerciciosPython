@@ -1,0 +1,4 @@
+print("" );
+Numero=int(input()); 
+Octagonal=otc(Numero);
+print("Numero octagonal es",octagonal);
