@@ -1,0 +1,75 @@
+<html>  
+<head>
+    <title>Comprar Productos</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">   
+</head>
+<body>  
+    <header>
+        <h1>Comprar Productos</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Formulario de Compra</h2>
+            <form id="formularioCompra" onsubmit="procesarCompra(event)">
+                <label for="nombre">Nombre Completo:</label><br>
+                <input type="text" id="nombre" name="nombre" required><br><br>
+
+                <label for="direccion">Dirección de Envío:</label><br>
+                <input type="text" id="direccion" name="direccion" required><br><br>
+
+                <label for="producto">Selecciona el Producto:</label><br>
+                <select id="producto" name="producto" required>
+                    <option value="collar">Collar</option>
+                    <option value="jabones">Jabones</option>
+                    <option value="crema">Crema de Manos</option>
+                </select><br><br>
+
+                <label for="cantidad">Cantidad:</label><br>
+                <input type="number" id="cantidad" name="cantidad" min="1" required><br><br>
+
+                <input type="submit" value="Realizar Compra">
+            </form>
+
+            <div id="detallesCompra" style="display: none;">
+                <h2>Detalles de la Compra</h2>
+                <p id="mensajeCompra"></p>
+                <p id="mensajePedido"></p>
+                <p id="mensajeDireccion"></p>
+            </div>
+
+            <script>
+                function procesarCompra(event) {
+                    event.preventDefault();
+                    
+                    const nombre = document.getElementById('nombre').value;
+                    const direccion = document.getElementById('direccion').value;
+                    const producto = document.getElementById('producto').value;
+                    const cantidad = document.getElementById('cantidad').value;
+
+                    if (nombre && direccion && producto && cantidad) {
+                        document.getElementById('formularioCompra').style.display = 'none';
+                        document.getElementById('detallesCompra').style.display = 'block';
+                        
+                        document.getElementById('mensajeCompra').textContent = `¡Gracias por su compra, ${nombre}!`;
+                        document.getElementById('mensajePedido').textContent = `Su pedido de ${cantidad} unidad(es) de ${producto} será enviado a la siguiente dirección:`;
+                        document.getElementById('mensajeDireccion').textContent = direccion;
+                    }
+                }
+            </script>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Nuestra Tienda. Todos los derechos reservados.</p>
+    </footer>
+
+    
+</html>
