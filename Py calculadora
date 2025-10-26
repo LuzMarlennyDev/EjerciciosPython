@@ -1,4 +1,0 @@
-texto = input ("Hola, dime como te ayudo")
-Calcular = input ("Digite, la operacion eje(2+3), eje(5-8):")
-t= eval (Calcular) # evalua la operacion 
-print ("total:",t) 
